@@ -1,0 +1,47 @@
+<mat-card>
+   <h3>Your Profile Details</h3>
+   <mat-card-content>
+    <div class="bootstrap-wrapper">
+        <div class="container">
+            <div class="container">
+                <img src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fmedia.istockphoto.com%2Fid%2F1317804578%2Fphoto%2Fone-businesswoman-headshot-smiling-at-the-camera.jpg%3Fs%3D612x612%26w%3D0%26k%3D20%26c%3DEqR2Lffp4tkIYzpqYh8aYIPRr-gmZliRHRxcQC5yylY%3D&tbnid=nz0sHggKAXi7UM&vet=12ahUKEwijgpnHgq-DAxVMe2wGHUVFBywQMygNegUIARCGAQ..i&imgrefurl=https%3A%2F%2Fwww.istockphoto.com%2Fphotos%2Fwoman-profile-picture&docid=z8GEDn2yMzUESM&w=612&h=408&q=profile%20image&ved=2ahUKEwijgpnHgq-DAxVMe2wGHUVFBywQMygNegUIARCGAQ" alt="not loading" class="profile-image">
+                <p>{{user?.username}}</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-10 offset-md-1">
+                   <table class="table">
+                    <tr>
+                        <td>UserName</td>
+                        <td>{{user?.username}}</td>
+                    </tr>
+                    <tr>
+                        <td>Email Id</td>
+                        <td>{{user?.email}}</td>
+                    </tr>
+                    <tr>
+                        <td>Phone</td>
+                        <td>{{user?.phone}}</td>
+                    </tr>
+                    <tr>
+                        <td>Role</td>
+                        <td>{{user?.userRoles[0].rolename}}</td>
+                    </tr>
+                    <tr>
+                        <td>Status</td>
+                        <td>{{ user.enable == 'true' ? 'Active' : 'Inactive' }}</td>
+                      </tr>
+                      
+                   </table>
+                </div>
+            </div>
+        </div>
+    </div>
+   </mat-card-content>
+   
+   <mat-card-actions>
+    <button mat-raised-button color="primary">Update</button>
+    <button mat-raised-button color="accent">SHARE</button>
+  </mat-card-actions>
+
+</mat-card>

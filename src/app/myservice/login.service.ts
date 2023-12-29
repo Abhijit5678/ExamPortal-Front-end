@@ -37,21 +37,24 @@ export class LoginService {
   public logout()
   {
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
     return true;
   }
 
   public getToken()
-{
+  {
      return localStorage.getItem('token');
 
-}
+  }
+ 
 
 setUserDetails(user:any)
 {
   localStorage.setItem('user',JSON.stringify(user));
+
 }
 
-getUserDetails()
+ public getUserDetails()
 {
  let userStr= localStorage.getItem('user');
  if (userStr !=null) {

@@ -1,18 +1,39 @@
 <mat-toolbar color="primary">
+  <button mat-icon-button [routerLink]="['/']" routerLinkActive="router-link-active" aria-label="Go to Home">
+    <mat-icon>home</mat-icon>
+  </button>
 
-    
-    <button mat-icon-button [routerLink]="['/']" routerLinkActive="router-link-active" aria-label="Go to Home">
-        <mat-icon>home</mat-icon>
-      </button>
-      
-    <span>Exam portal</span>
-    <span class="example-spacer"></span>
-    <button mat-icon-button [routerLink]="['/login']" routerLinkActive="router-link-active" aria-label="Go to Login page" class="example-icon favorite-icon">
+  <span>Exam portal</span>
+  <span class="example-spacer"></span>
+
+  <div>
+    <!-- If the user is not logged in, wrap the button inside an anchor tag -->
+    <a *ngIf="!login.isLogin()" [routerLink]="['/login']">
+      <button mat-icon-button routerLinkActive="router-link-active" aria-label="Go to Login page" class="example-icon favorite-icon">
         <mat-icon>Login</mat-icon>
       </button>
-      
-      <button mat-icon-button [routerLink]="['/signup']" routerLinkActive="router-link-active" aria-label="Go to signup page" class="example-icon favorite-icon">
-        <mat-icon>Signup</mat-icon>
+    </a>
+
+    <!-- If the user is logged in, you may have a different action or button here -->
+    <button *ngIf="login.isLogin()" mat-icon-button (click)="logout()" routerLinkActive="router-link-active" aria-label="Logout" class="example-icon favorite-icon">
+      <h3>LogOut</h3>
+      <!-- <span>Logout</span> -->
+    </button>
+
+    <!-- Always display the Signup button -->
+    <button mat-icon-button [routerLink]="['/signup']" routerLinkActive="router-link-active" aria-label="Go to signup page" class="example-icon favorite-icon">
+      <mat-icon>Signup</mat-icon>
+    </button>
+  </div>
+
+  <!-- <div>
+    <button *ngIf="isUserLoggedIn" mat-icon-button (click)="logout()" routerLinkActive="router-link-active" aria-label="Go to Login page" class="example-icon favorite-icon">
+        <h3> Logout</h3>
       </button>
-  </mat-toolbar>
+    </div>   -->
+ 
   
+
+  
+  <span>{{userName}}</span>
+</mat-toolbar>
